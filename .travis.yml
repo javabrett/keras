@@ -41,6 +41,16 @@ matrix:
           dist: xenial
         - python: 3.6
           env: KERAS_BACKEND=cntk PYTHONWARNINGS=ignore
+    allow_failures:
+        - python: 3.7
+          env: KERAS_BACKEND=tensorflow TEST_MODE=PEP8_DOC PIL=Pillow
+          dist: xenial
+        - python: 3.7
+          env: KERAS_BACKEND=tensorflow TEST_MODE=API
+          dist: xenial
+        - python: 3.7
+          env: KERAS_BACKEND=cntk PYTHONWARNINGS=ignore
+          dist: xenial
 install:
   # code below is taken from http://conda.pydata.org/docs/travis.html
   # We do this conditionally because it saves us some downloading if the
