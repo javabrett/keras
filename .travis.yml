@@ -5,6 +5,15 @@ cache:
     - $HOME/.theano
 matrix:
     include:
+        - python: 3.7
+          env: KERAS_BACKEND=tensorflow TEST_MODE=INTEGRATION_TESTS PIL=Pillow
+          dist: xenial
+        - python: 3.7
+          env: KERAS_BACKEND=tensorflow TEST_MODE=PEP8_DOC PIL=Pillow
+          dist: xenial
+        - python: 3.7
+          env: KERAS_BACKEND=tensorflow TEST_MODE=API
+          dist: xenial
         - python: 3.6
           env: KERAS_BACKEND=tensorflow TEST_MODE=INTEGRATION_TESTS PIL=Pillow
         - python: 3.6
@@ -13,14 +22,23 @@ matrix:
           env: KERAS_BACKEND=tensorflow TEST_MODE=API
         - python: 2.7
           env: KERAS_BACKEND=tensorflow
+        - python: 3.7
+          env: KERAS_BACKEND=tensorflow
+          dist: xenial
         - python: 3.6
           env: KERAS_BACKEND=tensorflow
         - python: 2.7
           env: KERAS_BACKEND=theano THEANO_FLAGS=optimizer=fast_compile MKL="mkl mkl-service" RUN_ONLY_BACKEND_TESTS=1
+        - python: 3.7
+          env: KERAS_BACKEND=theano THEANO_FLAGS=optimizer=fast_compile MKL="mkl mkl-service"
+          dist: xenial
         - python: 3.6
           env: KERAS_BACKEND=theano THEANO_FLAGS=optimizer=fast_compile MKL="mkl mkl-service"
         - python: 2.7
           env: KERAS_BACKEND=cntk PYTHONWARNINGS=ignore RUN_ONLY_BACKEND_TESTS=1
+        - python: 3.7
+          env: KERAS_BACKEND=cntk PYTHONWARNINGS=ignore
+          dist: xenial
         - python: 3.6
           env: KERAS_BACKEND=cntk PYTHONWARNINGS=ignore
 install:
